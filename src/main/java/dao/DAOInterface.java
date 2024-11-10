@@ -1,8 +1,8 @@
-package dao;
+package main.java.dao;
 
 import java.util.List;
 
-import model.Product;
+import main.java.model.Product;
 
 public interface DAOInterface {
 
