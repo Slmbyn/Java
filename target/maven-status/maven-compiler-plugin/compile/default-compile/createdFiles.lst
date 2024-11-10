@@ -1,5 +1,5 @@
 dao/DAOInterface.class
 dao/ConnectionUtility.class
 dao/DAOClass.class
-main/java/com/selam/Main.class
 model/Product.class
+com/selam/Main.class

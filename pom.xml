@@ -11,12 +11,14 @@
         <maven.compiler.target>23</maven.compiler.target>
     </properties>
 
-    <!-- Dependencies go here (leave empty for now) -->
     <dependencies>
-        <!-- Example dependency for JDBC - adjust according to your database -->
-        <!-- <groupId>com.oracle.database.jdbc</groupId>
-        <artifactId>ojdbc8</artifactId>
-        <version>19.8.0.0</version> -->
+
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.47.0.0</version> 
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -32,7 +34,6 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <!-- The fully-qualified name of your main class -->
                             <mainClass>com.selam.Main</mainClass>
                         </configuration>
                     </execution>

@@ -41,7 +41,7 @@ import model.Product;
             }
             
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // printStackTrace not recommended for production, but fine for this practice project
         }
         return products;
     }
