@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
-import java.sql.DriverManager;
+// HANDLES CRUD FOR DATABASE
+    public class DAOClass implements DAOInterface {
 
-public class DAOClass implements DAOInterface {
+    // private Connection getConnection() throws ClassNotFoundException, SQLException{
+    //     Class.forName("oracle.jdbc.OracleDriver");
+    //     return DriverManager.getConnection("url", "username", "password");
+    // }
 
-    private Connection getConnection(){
-        Class.forName("oracle.jdbc.OracleDriver");
-        return DriverManager.getConnection("url", "username", "password");
-    }
-
+    @Override
     public List<Product> getProducts() {
 
         List<Product> products = new ArrayList<Product>();
 
         try {
-            Connection conn = getConnection();
+            Connection conn = ConnectionUtility.getConnection();
             String sql = "SELECT * FROM products";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -37,7 +37,7 @@ public class DAOClass implements DAOInterface {
                 products.add(newProduct);
             }
             
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return products;
@@ -45,8 +45,20 @@ public class DAOClass implements DAOInterface {
 
     @Override
     public void addProduct(Product product){
-        // todo: fill-in
+        try {
+            Connection conn = ConnectionUtility.getConnection();
+            String sql = "INSERT INTO products VALUES (?,?,?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setLong(1, product.getProductId());
+            ps.setString(2, product.getProductName());
+            ps.setString(3, product.getProductDescription());
+            ps.executeUpdate();
+            System.out.println("Product Added Successfully!");
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
+
     @Override
     public void deleteProduct(Product product){
         // todo: fill-in
