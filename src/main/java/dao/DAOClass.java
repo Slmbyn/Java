@@ -1,11 +1,13 @@
-package main.java.dao;
+package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.model.Product;
-
-import java.sql.*;
+import model.Product;
 
 // HANDLES CRUD FOR DATABASE
     public class DAOClass implements DAOInterface {
@@ -18,7 +20,7 @@ import java.sql.*;
     @Override
     public List<Product> getProducts() {
 
-        List<Product> products = new ArrayList<Product>();
+        List<Product> products = new ArrayList<>();
 
         try {
             Connection conn = ConnectionUtility.getConnection();
