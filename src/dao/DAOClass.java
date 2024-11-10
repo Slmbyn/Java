@@ -1,9 +1,10 @@
 package dao;
 
-import Model.Product;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Product;
+
 import java.sql.*;
 
 // HANDLES CRUD FOR DATABASE
